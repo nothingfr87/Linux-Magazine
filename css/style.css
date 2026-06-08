@@ -2,10 +2,10 @@
   --bg-main: #0f0e17;
   --bg-card: #16161a;
   --purple-primary: #7f5af0;
-  --purple-secondary: #94b4a4; /* لون جانبي هادئ */
+  --purple-secondary: #94b4a4;
   --text-headline: #fffffe;
   --text-paragraph: #94a1b2;
-  --accent-green: #2cb67d; /* للنجاح أو التلميحات */
+  --accent-green: #2cb67d;
   --border-color: #242629;
 }
 * {
@@ -69,6 +69,18 @@ hr {
   color: var(--purple-primary);
   animation: color-change 6s infinite ease-in-out;
 }
+.header .links .ham-menu span {
+  display: none;
+  background: var(--text-headline);
+  height: 4px;
+  width: 25px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  position: relative;
+}
+.header .links .ham-menu span:nth-child(2) {
+  width: 10px;
+}
 .header .links ul {
   display: flex;
   align-items: center;
@@ -78,7 +90,7 @@ hr {
 .header .links ul li a {
   color: var(--text-headline);
   font-weight: 600;
-  font-size: 1.3rem;
+  font-size: 1rem;
   transition: all 0.2s ease-in-out;
 }
 .header .links ul li a:hover {
@@ -182,17 +194,50 @@ hr {
 }
 @media (min-width: 375px) and (max-width: 786px) {
   .header {
-    flex-direction: column;
     gap: 10px;
+    align-items: center;
   }
-  .header .logo p {
+  .header .logo a {
     font-size: 1.5rem;
   }
   .header .links ul {
-    gap: 10px;
+    position: absolute;
+    left: 20px;
+    top: 75px;
+    display: none;
+    background: var(--bg-card);
+    padding: 10px 15px;
+    border-radius: 0 14px 14px 14px;
+    width: 275px;
+  }
+  .header .links ul::before {
+    content: "";
+    border-width: 12px;
+    border-style: solid;
+    border-color: transparent transparent var(--purple-primary) transparent;
+    position: absolute;
+    left: 0;
+    top: -23px;
+  }
+  .header .links ul.open {
+    display: block;
+  }
+  .header .links ul li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.2s ease-in-out;
+  }
+  .header .links ul li:last-child {
+    border: none;
+  }
+  .header .links ul li:hover {
+    padding-right: 10px;
   }
   .header .links ul li a {
     font-size: 1rem;
+  }
+  .header .links .ham-menu span {
+    display: block;
   }
   .landing .title,
   .recent-posts h2.title,

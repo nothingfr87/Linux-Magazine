@@ -1,0 +1,62 @@
+.post-start {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.post-start .title {
+  color: var(--text-headline);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+.post-start .title span {
+  color: var(--purple-primary);
+  animation: color-change 6s infinite ease-in-out;
+}
+.post-start .tag {
+  color: var(--purple-primary);
+  background-color: rgba(127, 85, 240, 0.15);
+  padding: 8px 7px;
+  border-radius: 6px;
+  display: block;
+  width: fit-content;
+  margin: 20px auto;
+}
+.post-start .author {
+  color: var(--text-headline);
+  background-color: rgba(127, 85, 240, 0.15);
+  padding: 8px 7px;
+  border-radius: 6px;
+  direction: ltr;
+  font-size: 1.2rem;
+  margin: 20px auto;
+  width: fit-content;
+}
+.post-start .author a {
+  color: var(--purple-primary);
+}
+.post-start .details {
+  color: var(--text-paragraph);
+}
+.post {
+  padding: 20px;
+}
+.post h3 {
+    color: var(--purple-primary);
+}
+.post-text {
+  color: var(--text-paragraph);
+  margin: 20px auto;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+.post ul li {
+  color: var(--text-paragraph);
+  margin: 20px auto;
+  font-size: 1rem;
+}
+.post-chapter {
+  color: var(--text-headline);
+  margin: 40px auto;
+  font-size: 1.7rem;
+}
