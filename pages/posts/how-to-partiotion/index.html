@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="المجلة اللنكساوية , مجلة عربية بها شرح للعديد من الأمور في لينكس"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>المجلة اللنكساوية | كيف تقسم بارتشنز</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Tajawal:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="logo">
+        <a href="/index.html"><span>❯_</span> المجلة اللنكساوية</a>
+      </div>
+      <div class="links">
+        <ul>
+          <li><a href="/pages/distros.html">التوزيعات</a></li>
+          <li><a href="/pages/commands.html">الأوامر</a></li>
+          <li><a href="/pages/deandwm.html">الواجهات ومدراء النوافذ</a></li>
+          <li><a href="/pages/posts/main.html">الكتابات</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Header -->
+    <div class="post-start">
+      <h1 class="title">كيف تقسم بارتشنز</h1>
+      <p class="details">
+        كيفية تقسيم البارتشنز . خطوة مهمة جدا إذا كنت بتثبت توزيعة مثل ارش
+      </p>
+      <span class="tag">أوامر</span>
+      <p class="author">
+        <a href="https://github.com/nothingfr87">Nothing</a>: الناشر
+      </p>
+    </div>
+    <hr />
+    <div class="post">
+      <p class="post-text">
+        السلام عليكم ورحمة الله وبركاته, طبعا لو كنت ثبتت آرش او جنتو او اي
+        توزيعة تعتمد على المستخدم بالتثبيت اليدوي اكيد تعرف كيف تقسم بارتشنز ووش
+        الادوات اللي بتستخدمها, من الأدوات السهلة لتقسيم البارتشنز وبواجهة TUI
+        يعني تقدر تستخدم الكيبورد في استخدامها هي cfdisk ومتوفرة تقريبا بكل
+        البيئات الحية لتوزيعات لينكس وموجودة بشكل اساسي في كل التوزيعات المهم
+        نبدأ بكيف نستخدمها وطريقة تقسيم البارتشنز
+      </p>
+      <h2 class="post-chapter">طريقة استخدام CFDISK وتقسيم القرص:</h2>
+      <p class="post-text">اول شيء تحدد القرص اللي عندك واللي تبغى تقسمه</p>
+      <div class="code-block">
+        <span>$</span> lsblk <br />
+        NAME MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS <br />
+        sda 8:0 0 298.1G 0 disk
+      </div>
+      <p class="post-text">
+        التقسيمة اللي بنسويها بتكون التقسيمة البدائية الطبيعية
+      </p>
+      <h2 class="post-chapter">UEFI:</h2>
+      <ul>
+        <li>Swap: بنسويها 4GB في هذا الشرح</li>
+        <li>EFI: 512MB</li>
+        <li>Root: باقي المساحة المتبقية</li>
+      </ul>
+      <h2 class="post-chapter">BIOS:</h2>
+      <ul>
+        <li>Swap: 4GB</li>
+        <li>EFI: 512MB</li>
+        <li>Root: باقي المساحة المتبقية</li>
+      </ul>
+      <p class="post-text">يلا نبدأ , الحين بنستخدم CFDISK</p>
+      <div class="code-block"><span>$</span> sudo cfdisk /dev/sda</div>
+      <p class="post-text">
+        بتطلع لك واجهة تختار فيها GPT لو جهازك UEFI وبتختار DOS لو جهازك BIOS
+        المهم بعدها تختار القرص تضغط عليه وتكتب المساحة اللي بتكون لل EFI اللي
+        بتكون 512MB (لاجهزة UEFI فقط) وبعدها تروح (بالأسهم) لكلمة TYPE وتختارها
+        وتختار نوع EFI System , ذا بيضمن ان Bootloader يستخدم بارتشن EFI عشان
+        يقلع منه , بتكتب 512M بخانة السؤال عن الحجم ذا بيكون /dev/sda1 بعدها
+        نختار القرص الاساسي مرة ثانية بالضغط عليه بزر ENTER وبعدها تكتب مساحة
+        الSwap اللي بتكون 4GB ورح تكتب 4G وتختار كلمة TYPE وتحدد Linux Swap /
+        Solaris ذا بيكون /dev/sda3 عشان مساحة الروت بنسوي نفس الشيء لكن ما بنحدد
+        حجم فقط بنضغط ENTER, وذا بيكون /dev/sda2 , طبعا اجهزة BIOS رح تخلي الروت
+        BOOTABLE فقط رح تختار بارتشن الروت ورح تختار BOOTABLE وكذا تكون خلصت
+        التقسيمة بتختار WRITE وبتكتب yes وكذا التقسيمة تمت (استخدم lsblk عشان
+        تتأكد من التقسيمة)
+      </p>
+      <h2 class="post-chapter">تحديد نوع البارتشنز:</h2>
+      <p class="post-text">
+        قسمت البارتشنز؟ يلا نحدد نوعهم (او نفرمتهم Formatting)
+      </p>
+      <h2 class="post-chapter">UEFI:</h2>
+      <div class="code-block">
+        <span>$</span> sudo mkfs.fat -F 32 /dev/sda1<br />
+        sudo mkfs.ext4 /dev/sda2<br />
+        sudo mkswap /dev/sda3<br />
+        <br />
+        # Enable Swap<br />
+        sudo swapon /dev/sda3
+      </div>
+      <h2 class="post-chapter">BIOS:</h2>
+      <div class="code-block">
+        <span>$</span> sudo mkfs.ext4 /dev/sda1<br />
+        sudo mkswap /dev/sda2<br />
+        <br />
+        # Enable Swap<br />
+        sudo swapon /dev/sda2
+      </div>
+      <p class="post-text">وكذا نكون خلصنا</p>
+    </div>
+  </body>
+</html>

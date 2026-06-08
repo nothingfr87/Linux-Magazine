@@ -1,0 +1,207 @@
+:root {
+  --bg-main: #0f0e17;
+  --bg-card: #16161a;
+  --purple-primary: #7f5af0;
+  --purple-secondary: #94b4a4; /* لون جانبي هادئ */
+  --text-headline: #fffffe;
+  --text-paragraph: #94a1b2;
+  --accent-green: #2cb67d; /* للنجاح أو التلميحات */
+  --border-color: #242629;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "JetBrains Mono", "Tajawal";
+  min-height: 100vh;
+  background: var(--bg-main);
+  direction: rtl;
+}
+ul {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+hr {
+  width: 20%;
+  color: var(--purple-primary);
+  margin: auto;
+}
+.read {
+  color: var(--purple-primary);
+  border: 1px solid var(--purple-primary);
+  border-radius: 10px;
+  padding: 10px 19px;
+  transition: all 0.2s ease-in-out;
+}
+.read:hover {
+  color: var(--text-headline);
+  background: var(--purple-primary);
+}
+.code-block {
+  background: #1e1e2e;
+  border-radius: 10px;
+  border-left: 7px solid var(--purple-primary);
+  color: var(--text-headline);
+  padding: 15px;
+  direction: ltr;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  padding: 20px;
+  background: var(--bg-card);
+  border-bottom: 3px solid var(--purple-primary);
+}
+.header .logo a {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--text-headline);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header .logo span {
+  color: var(--purple-primary);
+  animation: color-change 6s infinite ease-in-out;
+}
+.header .links ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 25px;
+}
+.header .links ul li a {
+  color: var(--text-headline);
+  font-weight: 600;
+  font-size: 1.3rem;
+  transition: all 0.2s ease-in-out;
+}
+.header .links ul li a:hover {
+  color: var(--purple-primary);
+}
+.landing {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+.landing .title {
+  color: var(--text-headline);
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+.landing .title span {
+  color: var(--purple-primary);
+  animation: color-change 6s infinite ease-in-out;
+}
+@keyframes color-change {
+  0%,
+  100% {
+    color: var(--purple-primary);
+  }
+  50% {
+    color: var(--accent-green);
+  }
+}
+.landing .details {
+  color: var(--text-paragraph);
+}
+.recent-posts {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+.recent-posts h2.title {
+  position: relative;
+  color: var(--text-headline);
+  font-size: 1.7rem;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  padding-right: 20px;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+.recent-posts h2.title:hover {
+  color: var(--purple-primary);
+}
+.recent-posts h2.title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--purple-primary);
+  width: 10px;
+  height: 100%;
+  border-radius: 17px;
+}
+.recent-posts .posts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 20px;
+}
+.recent-posts .post-card {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 7px 10px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease-in-out;
+  max-width: 650px;
+  cursor: pointer;
+}
+.recent-posts .post-card:hover {
+  border-color: var(--purple-primary);
+  transform: translateY(-10px);
+}
+.recent-posts .post-card .tag {
+  color: var(--purple-primary);
+  background-color: rgba(127, 85, 240, 0.15);
+  padding: 8px 7px;
+  border-radius: 6px;
+  display: block;
+  width: fit-content;
+  margin-bottom: 20px;
+}
+.recent-posts .post-card .title {
+  color: var(--text-headline);
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+.recent-posts .post-card .description {
+  color: var(--text-paragraph);
+  margin-bottom: 28px;
+}
+.recent-posts > .read {
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+}
+@media (min-width: 375px) and (max-width: 786px) {
+  .header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .header .logo p {
+    font-size: 1.5rem;
+  }
+  .header .links ul {
+    gap: 10px;
+  }
+  .header .links ul li a {
+    font-size: 1rem;
+  }
+  .landing .title,
+  .recent-posts h2.title,
+  .recent-posts .post-card .title {
+    font-size: 1.4rem;
+  }
+  .recent-posts .posts-container {
+    grid-template-columns: 1fr;
+  }
+}
