@@ -31,7 +31,6 @@ body {
   min-height: 100vh;
   background: var(--bg-main);
   direction: rtl;
-  text-align: right;
   display: flex;
   flex-direction: column;
 }
