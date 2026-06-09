@@ -41,6 +41,9 @@
 .post {
   padding: 20px;
 }
+.post h3 {
+  color: var(--purple-primary);
+}
 .post-text {
   color: var(--text-paragraph);
   margin: 20px auto;
@@ -56,4 +59,16 @@
   color: var(--text-headline);
   margin: 40px auto;
   font-size: 1.7rem;
+}
+.code-block pre {
+  background: #16161a;
+  color: #fffffe;
+  padding: 16px;
+  border-radius: 8px;
+
+  font-family: monospace;
+  line-height: 1.6;
+
+  white-space: pre; /* KEY: preserves your tree exactly */
+  overflow-x: auto; /* allows horizontal scroll if needed */
 }
