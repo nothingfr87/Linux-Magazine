@@ -1,25 +1,25 @@
 :root {
-  --bg-main: #0f0e17;
-  --bg-card: #16161a;
-  --bg-codeblock: #1e1e2e;
-  --purple-primary: #7f5af0;
-  --purple-secondary: #94b4a4;
-  --text-headline: #fffffe;
-  --text-paragraph: #94a1b2;
-  --accent-green: #2cb67d;
-  --border-color: #242629;
+  --bg-main: #0c111a;
+  --bg-card: #141b27;
+  --bg-codeblock: #1c2536;
+  --purple-primary: #00b4d8;
+  --purple-secondary: #0077b6;
+  --text-headline: #ffffff;
+  --text-paragraph: #94a3b8;
+  --accent-green: #10b981;
+  --border-color: #1e293b;
   --transition: all 0.2s ease-in-out;
 }
 body.light {
-  --bg-main: #f7f7fb;
+  --bg-main: #f1f5f9;
   --bg-card: #ffffff;
-  --bg-codeblock: #eff1f5;
-  --purple-primary: #6d4aff;
-  --purple-secondary: #b7a7ff;
-  --text-headline: #0f0f14;
-  --text-paragraph: #4b5563;
-  --accent-green: #1f9d6e;
-  --border-color: #e5e7eb;
+  --bg-codeblock: #e2e8f0;
+  --purple-primary: #0284c7;
+  --purple-secondary: #bae6fd;
+  --text-headline: #0f172a;
+  --text-paragraph: #475569;
+  --accent-green: #059669;
+  --border-color: #cbd5e1;
 }
 * {
   margin: 0;
@@ -250,8 +250,9 @@ button {
     left: 20px;
     top: 75px;
     background: var(--bg-card);
+    border: 2px solid var(--purple-primary);
     padding: 10px 15px;
-    border-radius: 0 14px 14px 14px;
+    border-radius: 0 0 14px 14px;
     width: 275px;
     opacity: 0;
     overflow: hidden;
