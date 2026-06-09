@@ -1,6 +1,7 @@
 :root {
   --bg-main: #0f0e17;
   --bg-card: #16161a;
+  --bg-codeblock: #1e1e2e;
   --purple-primary: #7f5af0;
   --purple-secondary: #94b4a4;
   --text-headline: #fffffe;
@@ -12,6 +13,7 @@
 body.light {
   --bg-main: #f7f7fb;
   --bg-card: #ffffff;
+  --bg-codeblock: #eff1f5;
   --purple-primary: #6d4aff;
   --purple-secondary: #b7a7ff;
   --text-headline: #0f0f14;
@@ -59,7 +61,7 @@ button {
   background: var(--purple-primary);
 }
 .code-block {
-  background: #1e1e2e;
+  background: var(--bg-codeblock);
   border-radius: 10px;
   border-left: 7px solid var(--purple-primary);
   color: var(--text-headline);
@@ -74,6 +76,7 @@ button {
   padding: 20px;
   background: var(--bg-card);
   border-bottom: 3px solid var(--purple-primary);
+  box-shadow: 0 10px 12px 0 rgba(127, 85, 240, 0.3);
 }
 .header .logo a {
   font-weight: bold;
