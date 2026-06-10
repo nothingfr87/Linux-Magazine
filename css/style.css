@@ -76,8 +76,9 @@ button {
 pre {
   font-family: "JetBrains Mono" !important;
   background: var(--bg-card) !important;
+  color: var(--text-headline) !important;
   padding: 8px !important;
-  border-radius: 8px;
+  border-radius: 8px !important;
 }
 .header {
   display: flex;

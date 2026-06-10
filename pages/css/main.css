@@ -47,7 +47,7 @@
 }
 .posts .post-card .tag {
   color: var(--color-primary);
-  background-color: rgba(127, 85, 240, 0.15);
+  background-color: rgba(0, 180, 216, 0.15);
   padding: 8px 7px;
   border-radius: 6px;
   display: block;
